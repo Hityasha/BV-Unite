@@ -33,10 +33,12 @@ The Project has been built by using python web framework Django. It provides bui
 
 7) Next we move on to the 'Messages' section. Here we can start a new chat or continue a recent chat with any member of the website.
 ![](/Images/new chat.png)
+
 ![](/Images/recent chat.png)
 
 8) Next on the nav bar we have 'Announcements' section. This section depends on what type of user you are. If you are a Teacher/Alumni then you can view and make announcements but if you are a student then you can only view announcements.
 ![](/Images/view annc.png)
+
 ![](/Images/make annc.jpeg)
 
 9) You can also view someone else's profile by clicking 'View Profile'.
