@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <!-- Popper JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        body {
+            margin-top: 20px;
+            background: url("static/images/Messagebg.png") no-repeat fixed center;
+            background-size: cover;
+        }
+
+        .member-entry {
+            border: 1px solid #ebebeb;
+            padding: 15px;
+            margin-top: 15px;
+            margin-bottom: 30px;
+            -moz-box-shadow: 0 1.5rem 4rem rgba(22, 28, 45, 0.1);
+            -webkit-box-shadow: 0 1.5rem 4rem rgba(22, 28, 45, 0.1);
+            box-shadow: 1 0 1.5rem 4rem rgba(22, 28, 45, 0.1);
+            -moz-transition: all 300ms ease-in-out;
+            -webkit-transition: all 300ms ease-in-out;
+            -o-transition: all 300ms ease-in-out;
+            transition: all 300ms ease-in-out;
+            -webkit-border-radius: 3px;
+            -webkit-background-clip: padding-box;
+            -moz-border-radius: 3px;
+            -moz-background-clip: padding;
+            border-radius: 3px;
+            background-clip: padding-box;
+            background: #fff;
+            -webkit-box-shadow: 0 2px 2px 0 rgba(0,0,0,0.2),0 6px 10px 0 rgba(0,0,0,0.3);
+            box-shadow: 0 2px 2px 0 rgba(0,0,0,0.2),0 6px 10px 0 rgba(0,0,0,0.3);
+        }
+
+            .member-entry:before,
+            .member-entry:after {
+                content: " ";
+                display: table;
+            }
+
+            .member-entry:after {
+                clear: both;
+            }
+
+            .member-entry:hover {
+                background: rgba(235, 235, 235, 0.3);
+                -moz-box-shadow: 1px 1px 1px rgba(0, 1, 1, 0.06);
+                -webkit-box-shadow: 1px 1px 1px rgba(0, 1, 1, 0.06);
+                box-shadow: 1px 1px 1px rgba(0, 1, 1, 0.06);
+            }
+
+            .member-entry .member-img,
+            .member-entry .member-details {
+                float: left;
+            }
+
+            .member-entry .member-img {
+                position: relative;
+                display: block;
+                width: 10%;
+            }
+
+                .member-entry .member-img img {
+                    width: 100%;
+                    display: block;
+                    max-width: 100%;
+                    height: auto;
+                }
+
+                .member-entry .member-img i {
+                    position: absolute;
+                    display: block;
+                    left: 50%;
+                    top: 50%;
+                    margin-top: -12.5px;
+                    margin-left: -12.5px;
+                    color: #FFF;
+                    font-size: 25px;
+                    zoom: 1;
+                    -webkit-opacity: 0;
+                    -moz-opacity: 0;
+                    opacity: 0;
+                    filter: alpha(opacity=0);
+                    -moz-transform: scale(0.5);
+                    -webkit-transform: scale(0.5);
+                    -ms-transform: scale(0.5);
+                    -o-transform: scale(0.5);
+                    transform: scale(0.5);
+                    -moz-transition: all 300ms ease-in-out;
+                    -webkit-transition: all 300ms ease-in-out;
+                    -o-transition: all 300ms ease-in-out;
+                    transition: all 300ms ease-in-out;
+                }
+
+                .member-entry .member-img:hover i {
+                    -moz-transform: scale(1);
+                    -webkit-transform: scale(1);
+                    -ms-transform: scale(1);
+                    -o-transform: scale(1);
+                    transform: scale(1);
+                    zoom: 1;
+                    -webkit-opacity: 1;
+                    -moz-opacity: 1;
+                    opacity: 1;
+                    filter: alpha(opacity=100);
+                }
+
+            .member-entry .member-details {
+                width: 89.9%;
+            }
+
+                .member-entry .member-details h4 {
+                    font-size: 18px;
+                    margin-left: 20px;
+                }
+
+                    .member-entry .member-details h4 a {
+                        -moz-transition: all 300ms ease-in-out;
+                        -webkit-transition: all 300ms ease-in-out;
+                        -o-transition: all 300ms ease-in-out;
+                        transition: all 300ms ease-in-out;
+                    }
+
+                .member-entry .member-details .info-list {
+                    margin-left: 5px;
+                }
+
+                    .member-entry .member-details .info-list > div {
+                        margin-top: 5px;
+                        font-size: 13px;
+                    }
+
+                        .member-entry .member-details .info-list > div a {
+                            -moz-transition: all 300ms ease-in-out;
+                            -webkit-transition: all 300ms ease-in-out;
+                            -o-transition: all 300ms ease-in-out;
+                            transition: all 300ms ease-in-out;
+                        }
+
+                        .member-entry .member-details .info-list > div i {
+                            -moz-transition: all 300ms ease-in-out;
+                            -webkit-transition: all 300ms ease-in-out;
+                            -o-transition: all 300ms ease-in-out;
+                            transition: all 300ms ease-in-out;
+                        }
+
+                        .member-entry .member-details .info-list > div:hover i {
+                            color: #4f5259;
+                        }
+
+        @media screen and (max-width: 768px) {
+            .member-entry .member-img {
+                width: 18%;
+            }
+
+            .member-entry .member-details {
+                width: 81.9%;
+            }
+
+                .member-entry .member-details h4 {
+                    margin-top: 0;
+                }
+        }
+
+        @media screen and (max-width: 480px) {
+            .member-entry .member-img {
+                width: 100%;
+                float: none;
+                text-align: center;
+                position: relative;
+                background: #f8f8f8;
+                margin-bottom: 15px;
+                -webkit-border-radius: 3px;
+                -webkit-background-clip: padding-box;
+                -moz-border-radius: 3px;
+                -moz-background-clip: padding;
+                border-radius: 3px;
+                background-clip: padding-box;
+            }
+
+                .member-entry .member-img img {
+                    width: auto;
+                    display: inline-block;
+                    -webkit-border-radius: 0;
+                    -webkit-background-clip: padding-box;
+                    -moz-border-radius: 0;
+                    -moz-background-clip: padding;
+                    border-radius: 0;
+                    background-clip: padding-box;
+                }
+
+            .member-entry .member-details {
+                width: 100%;
+                float: none;
+            }
+
+                .member-entry .member-details h4,
+                .member-entry .member-details .info-list {
+                    margin-left: 0;
+                }
+
+                    .member-entry .member-details h4 > div,
+                    .member-entry .member-details .info-list > div {
+                        padding: 0;
+                    }
+
+                    .member-entry .member-details .info-list > div {
+                        margin-top: 10px;
+                    }
+        }
+    </style>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+
+
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+    <div class="container">
+        <div class="row bootstrap snippets bootdeys">
+            <div class="col-md-9 col-sm-7">
+                <h2 style="color:white; font-family:verdana;">Members</h2>
+            </div>
+            <div class="col-md-3 col-sm-5">
+                <a href="{% url 'home' %}" class="btn btn-info" style="float:right; margin-right:10px;">Back to Home</a>
+            </div>
+        </div>
+        {% for j in msg2 %}
+        {% for i in msg1 %}
+        {% if i.aid == j.uid %}
+        <div class="member-entry">
+            <a href="#" class="member-img">
+                {% for m in msg4 %}
+                {% if forloop.counter == forloop.parentloop.parentloop.counter %}
+                <img src="{{m.Pr_img}}" class="img-rounded">
+                {% endif %}
+                {% endfor %}
+                <i class="fa fa-forward"></i>
+            </a>
+
+            <div class="member-details">
+
+                <form method="POST" action="profile_view">
+                    {% csrf_token %}
+                    <button type="submit" name="submit" value="{{j.uid}}" class="btn btn-light" style="color:dodgerblue; font-family: verdana;"><strong>{{j.uname}}</strong></button>
+                </form>
+                <div class="row info-list">
+                    <div class="col-sm-4">
+                        <i class="fa fa-briefcase"></i>
+                        {% for m in msg4 %}
+                        {% if forloop.counter == forloop.parentloop.parentloop.counter %}
+                        <a href="#">{{m.Pr_title}}</a>
+                        {% endif %}
+                        {% endfor %}
+
+                    </div>
+                    <div class="col-sm-4">
+                        <i class="fa fa-envelope"></i>
+                        <a href="#">{{j.uemail}}</a>
+                    </div>
+                    <div class="clear"></div>
+                    <div class="col-sm-4">
+                        <i class="fas fa-dot-circle"></i><a href="#" style="color:green; font-family:verdana;">Active Now</a>
+                    </div>
+
+                    <div class="col-sm-4">
+                        <i class="fa fa-location"></i>
+                        <a href="#">{{j.urole}}</a>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        {%endif%}
+        {%endfor%}
+        {%endfor%}
+        {% for l in msg2 %}
+        {% if l.uid not in msg3 %}
+        <div class="member-entry">
+            <a href="#" class="member-img">
+                {% for m in msg4 %}
+                {% if forloop.counter == forloop.parentloop.counter %}
+                <img src="{{m.Pr_img}}" class="img-rounded">
+                {% endif %}
+                {% endfor %}
+                <i class="fa fa-forward"></i>
+            </a>
+            <div class="member-details">
+                <form method="POST" action="profile_view">
+                    {% csrf_token %}
+                    <button type="submit" name="submit" value="{{l.uid}}" class="btn btn-light" style="color:dodgerblue; font-family: verdana;"><strong>{{l.uname}}</strong></button>
+                </form>
+                <div class="row info-list">
+                    <div class="col-sm-4">
+                        <i class="fa fa-briefcase"></i>
+                        {% for m in msg4 %}
+                        {% if forloop.counter == forloop.parentloop.counter %}
+                        <a href="#">{{m.Pr_title}}</a>
+
+                        {% endif %}
+                        {% endfor %}
+                    </div>
+                    <div class="col-sm-4">
+                        <i class="fa fa-envelope"></i>
+                        <a href="#">{{l.uemail}}</a>
+                    </div>
+
+                    <div class="clear"></div>
+                    <div class="col-sm-8">
+                        <i class="fa fa-location"></i>
+                        <a href="#">{{l.urole}}</a>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        {%endif%}
+        {%endfor%}
+
+    </div>
+</body>
+</html>
+

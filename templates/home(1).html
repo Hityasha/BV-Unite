@@ -1,0 +1,603 @@
+﻿{% load static %}
+{% load myfilters %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+    <title>BV UNITE WEBSITE - Home</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    <meta content="" name="description">
+    <meta content="" name="keywords">
+
+    <!-- Favicons -->
+    <link href="assets/img/favicon.png" rel="icon">
+    <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Roboto:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+
+    <!-- Vendor CSS Files -->
+    <link href="{% static '/vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+    <link href="{% static '/vendor/icofont/icofont.min.css' %}" rel="stylesheet">
+    <link href="{% static '/vendor/boxicons/css/boxicons.min.css' %}" rel="stylesheet">
+    <link href="{% static '/vendor/animate.css/animate.min.css' %}" rel="stylesheet">
+    <link href="{% static '/vendor/venobox/venobox.css' %}" rel="stylesheet">
+    <link href="{% static '/vendor/owl.carousel/assets/owl.carousel.min.css' %}" rel="stylesheet">
+
+    <!-- Template Main CSS File -->
+    <link href="{% static '/css/style.css' %}" rel="stylesheet">
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://www.w3schools.com/lib/w3-theme-blue-grey.css">
+    <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Open+Sans'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <style>
+        .bg {
+            height: 200px;
+            width: 10%;
+        }
+
+        html, body, h1, h2, h3, h4, h5 {
+            font-family: "Open Sans", sans-serif
+        }
+
+        .dropbtn {
+            color: white;
+            padding: 16px;
+            font-size: 16px;
+            border: none;
+            cursor: pointer;
+        }
+
+            .dropbtn:hover, .dropbtn:focus {
+                background-color: #3e8e41;
+            }
+
+        #myInput {
+            box-sizing: border-box;
+      
+            background-position: 14px 12px;
+            background-repeat: no-repeat;
+            font-size: 16px;
+            padding: 14px 20px 12px 45px;
+            border: none;
+            border-bottom: 1px solid #ddd;
+        }
+
+            #myInput:focus {
+                outline: 3px solid #ddd;
+            }
+
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #f6f6f6;
+            height: 150px;
+            overflow: auto;
+            min-width: 150px;
+            overflow: auto;
+            border: 1px solid #ddd;
+            z-index: 1;
+        }
+
+            .dropdown-content a {
+                color: black;
+                padding: 4px 4px;
+                text-decoration: none;
+                display: block;
+            }
+
+        .dropdown a:hover {
+            background-color: #ddd;
+        }
+
+        .show {
+            display: block;
+        }
+    </style>
+    <!-- Navbar on small screens -->
+    <div id="navDemo" class="w3-bar-block w3-theme-d2 w3-hide w3-hide-large w3-hide-medium w3-large">
+        <a href="#" class="w3-bar-item w3-button w3-padding-large">Link 1</a>
+        <a href="#" class="w3-bar-item w3-button w3-padding-large">Link 2</a>
+        <a href="#" class="w3-bar-item w3-button w3-padding-large">Link 3</a>
+        <a href="#" class="w3-bar-item w3-button w3-padding-large">My Profile</a>
+    </div>
+</head>
+
+<body>
+
+    <header id="header" class="fixed-top">
+        <div class="container d-flex align-items-center">
+            <div>
+                {% for message in messages %}
+                <script>
+                                window.onload = function () {
+                                    alert('{{message}}')
+                                }
+                </script>
+                {% endfor %}
+            </div>
+
+
+            <a href="{% url 'home' %}" class="logo mr-auto"> <img src="static/images/logosmall.jpg" style="width:50px; height:50px;"></a>
+            <nav class="nav-menu d-none d-lg-block">
+
+                <ul>
+                    &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+
+
+
+                    <li class="drop-down">
+                        <button class="btn btn-info" type="submit" onclick="showBar()" style="float:right;">Search others</button>
+
+
+                        <ul id="myDropdown" class="dropdown-content">
+                            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" id="myInput" onkeyup="filterFunction()">
+
+                            {% for k in All_user %}{% for j in All_profile %}
+                            {% if forloop.counter == forloop.parentloop.counter %}
+                            <form method="POST" action="profile_view">
+                                {% csrf_token %}
+                                <button type="submit" name="submit" value="{{k.uid}}" class="btn btn-light"><img src="{{j.Pr_img}}" class="w3-circle" width="30px" border-radius="50%">{{k.uname}}</button>
+                            </form>
+                            {% endif %}
+                            {% endfor %}
+                            {% endfor %}
+                        </ul>
+
+
+                    </li>
+                    &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+
+                    <li class="active"><a href="{% url 'home' %}"><i class="fa fa-home" aria-hidden="true"></i>Home</a></li>
+                    <li>
+                        <a href="{% url 'contacts' %}">
+                            <i class="fa fa-rss" aria-hidden="true"></i>
+
+                            Contacts
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="{% url 'Inbox' %}">
+                            <i class="fa fa-envelope" aria-hidden="true"></i>
+                            Message
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{% url 'my_profile_view' %}">
+                            <i class="fa fa-user-circle" aria-hidden="true"></i>
+                            ME
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{% url 'ancmnt_view' %}">
+                            <i class="fa fa-newspaper-o" aria-hidden="true"></i>
+                            ANNOUNCEMENTS
+                        </a>
+                    </li>
+                    <li class="drop-down" style="color:white">
+                        ...
+                        <ul>
+                            <li><a href="{% url 'contact_us_in' %}">Contact Us</a></li>
+
+                            <li><a href="{% url 'change_psw' %}">Change Password</a></li>
+                            <li><a href="{% url 'logout' %}">Logout</a></li>
+                        </ul>
+                    </li>
+                </ul>
+
+            </nav><!-- .nav-menu -->
+        </div>
+    </header><!-- End Header -->
+    <!-- Page Container -->
+    <br />
+    <div class="w3-container w3-content" style="max-width:1400px;margin-top:80px">
+        <!-- The Grid -->
+        <div class="w3-row">
+            <!-- Left Column -->
+            <div class="w3-col m3">
+                <!-- Profile -->
+                <div class="w3-card w3-round w3-white">
+                    <div class="w3-container">
+                        <h4 class="w3-center">My Profile</h4>
+                        <p class="w3-center"><img src="{{msg2.Pr_img}}" class="w3-circle" style="height:106px;width:106px" alt="Avatar"></p>
+                        <hr>
+                        <p><i class="fa fa-pencil fa-fw w3-margin-right w3-text-theme"></i>{{msg1.uname}} ({{msg1.urole}})</p>
+                        <p><i class="fa fa-bullseye fa-fw w3-margin-right w3-text-theme"></i>{{msg2.Pr_title}}</p>
+                        <p><i class="fa fa-address-card fa-fw w3-margin-right w3-text-theme"></i>{{msg2.Pr_about}}</p>
+                    </div>
+                </div>
+                <br>
+
+
+                <br>
+
+
+                <div id="myCarousel" class="w3-carousel slide" data-ride="carousel">
+
+
+                    <!-- Wrapper for slides -->
+                    <div class="carousel-inner">
+                        <div class="item active">
+                            <div class="w3-card w3-round w3-white w3-center">
+                                <div class="w3-container">
+                                    <img src="{% static '/images/active_crsl.jpeg' %}" alt="Forest" style="width:100%;">
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="item">
+                            <div class="w3-card w3-round w3-white w3-center">
+                                <div class="w3-container">
+                                    <img src="{% static '/images/crsl(1).jpeg' %}" alt="Forest" style="width:100%;">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="item">
+                            <div class="w3-card w3-round w3-white w3-center">
+                                <div class="w3-container">
+                                    <img src="{% static '/images/crsl(2).jpeg' %}" alt="Forest" style="width:100%;">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="item">
+                            <div class="w3-card w3-round w3-white w3-center">
+                                <div class="w3-container">
+                                    <img src="{% static '/images/crsl(3).jpeg' %}" alt="Forest" style="width:100%;">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="item">
+                            <div class="w3-card w3-round w3-white w3-center">
+                                <div class="w3-container">
+                                    <img src="{% static '/images/crsl(4).jpeg' %}" alt="Forest" style="width:100%;">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="item">
+                            <div class="w3-card w3-round w3-white w3-center">
+                                <div class="w3-container">
+                                    <img src="{% static '/images/crsl(5).jpeg' %}" alt="Forest" style="width:100%;">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="item">
+                            <div class="w3-card w3-round w3-white w3-center">
+                                <div class="w3-container">
+                                    <img src="{% static '/images/crsl(6).jpeg' %}" alt="Forest" style="width:100%;">
+                                </div>
+                            </div>
+                        </div>
+
+
+                    </div>
+
+
+
+
+
+                    <!-- End Right Column -->
+                </div>
+
+                <!-- End Left Column -->
+
+            </div>
+
+
+            <!-- Middle Column -->
+            <div class="w3-col m7">
+
+                <div class="w3-row-padding">
+                    <div class="w3-col m12">
+                        <div class="w3-card w3-round w3-white">
+                            <div class="w3-container w3-padding">
+                                <center>
+                                    <h3 class="w3-opacity"><span>Welcome {{msg1.uname}}</span></h3>
+                                </center>
+                                <form method="POST" action="home" enctype="multipart/form-data">
+                                    {% csrf_token %}
+                                    <div class="form-group">
+                                        <textarea class="form-control" name="pmsg" aria-label="With textarea" placeholder="Write Something To Post..." required></textarea>
+                                    </div>
+
+
+
+
+                                    <i class="fa fa-paperclip" aria-hidden="true"></i>
+                                    <label class="fileContainer">
+                                        <input type="file" name="ppost">
+                                    </label>
+
+
+
+                                    <div class="text-right">
+                                        <button type="submit" class="w3-button w3-theme-d1 w3-margin-bottom">Post</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {% for i in post %}
+                <div class="w3-container w3-card w3-white w3-round w3-margin">
+                    <img src="{{i.P_name_img}}" class="w3-left w3-circle w3-margin-right" style="width:50px">
+                    <span class="w3-right w3-opacity">{{i.P_created}}</span>
+                    <h4>{{i.P_name}}</h4>
+                    <hr class="w3-clear">
+                    <p>{{i.P_content}}</p>
+                    <div class="w3-row-padding" style="margin:0 -16px">
+                        <div class="w3-half">
+                            <img src="{{i.P_img}}" style="width:100%" class="w3-margin-bottom">
+                        </div>
+
+                    </div>
+                    <form action="like_unlike_post" method="POST" class="like-form" id="{{i.id}}">
+                        {%csrf_token%}
+                        <button type="submit" class="w3-button w3-theme-d1 w3-margin-bottom like-btn{{i.id}}" name="id" value={{i.id}}>
+
+                            {% if msg2 not in i.P_liked.all %}
+                            <i class="fa fa-thumbs-up  like-icon{{i.id}}"></i>Like
+                            {% else %}
+                            <i class="fa fa-thumbs-down like-icon{{i.id}}"></i>Unlike
+                            {% endif %}
+
+                        </button>
+                        &nbsp
+                        <span style="float:right;" class="like-count{{i.id}}"><strong>{{i.num_likes}} </strong></span>
+                        <span style="float:right;"><strong>Likes: </strong></span>
+                        
+                    </form>
+                    
+                </div>
+
+                {% endfor %}
+
+                <!-- End Middle Column -->
+            </div>
+
+            <!-- Right Column -->
+            <div class="w3-col m2" bg>
+
+                <div id="myCarousel" class="w3-carousel slide" data-ride="carousel">
+
+
+                    <!-- Wrapper for slides -->
+                    <div class="carousel-inner">
+                        <div class="item active">
+                            <div class="w3-card w3-round w3-white w3-center">
+                                <div class="w3-container">
+                                    <img src="{% static '/images/recent.jpeg' %}" alt="Forest" style="width:100%;">
+
+                                </div>
+                            </div>
+                        </div>
+                        {% for i in msg %}
+                        {% with True as flag %}
+                        {% for j in msg6 %}
+                        {% if i.anc_uid == j.uid %}
+                        <div class="item">
+                            <div class="w3-card w3-white w3-center">
+                                <div class="w3-container">
+                                    <img src="{{i.anc_img}}"  class="w3-circle" style="height:106px;"> 
+                                    <p><center><strong>Announcement by:-</strong></center></p>
+                                    <p><center>{{j.uname}}({{j.urole}})</center></p>
+                                    <p><strong>{{i.anc_dsc}}</strong></p>
+                                    <p>{{i.anc_time}}</p>
+                                </div>
+                            </div>
+                        </div>
+                        {% elif i.anc_uid == "ADMIN" and flag == True %}
+                        <div class="item">
+                            <div class="w3-card w3-round w3-white w3-center">
+                                <div class="w3-container">
+                                    <img src="{{i.anc_img}}" class="w3-circle" style="height:106px;">
+                                    <p><center>Announcement By: Admin</center></p>
+                                    <p><strong>{{i.anc_dsc}}</strong></p>
+                                    <p>{{i.anc_time}}</p>
+                                </div>
+                            </div>
+                        </div>
+                        {% update_variable False as flag %}
+                        {%endif%}
+                        {%endfor%}
+                        {% endwith %}
+                        {%endfor%}
+                    </div>
+                    <br>
+
+
+
+                    <!-- End Right Column -->
+                </div>
+                <br>
+                <br>
+
+                <!-- Alert Box -->
+                <div class="w3-container w3-display-container w3-round w3-theme-l4 w3-border w3-theme-border w3-margin-bottom w3-hide-small">
+                    <span onclick="this.parentElement.style.display='none'" class="w3-button w3-theme-l3 w3-display-topright">
+                        <i class="fa fa-remove"></i>
+                    </span>
+                    <p><strong>Hey {{msg1.uname}}!</strong></p>
+                    <p>We are grateful that you are a part of BV-Unite.</p>
+                </div>
+                <!-- End Grid -->
+            </div>
+
+            <!-- End Page Container -->
+        </div>
+        <br>
+        <script>
+            // Accordion
+            function myFunction(id) {
+                var x = document.getElementById(id);
+                if (x.className.indexOf("w3-show") == -1) {
+                    x.className += " w3-show";
+                    x.previousElementSibling.className += " w3-theme-d1";
+                } else {
+                    x.className = x.className.replace("w3-show", "");
+                    x.previousElementSibling.className =
+                        x.previousElementSibling.className.replace(" w3-theme-d1", "");
+                }
+            }
+
+            // Used to toggle the menu on smaller screens when clicking on the menu button
+            function openNav() {
+                var x = document.getElementById("navDemo");
+                if (x.className.indexOf("w3-show") == -1) {
+                    x.className += " w3-show";
+                } else {
+                    x.className = x.className.replace(" w3-show", "");
+                }
+            }
+        </script>
+        <script>
+            /* When the user clicks on the button,
+            toggle between hiding and showing the dropdown content */
+            function showBar() {
+                document.getElementById("myDropdown").classList.toggle("show");
+            }
+
+            function filterFunction() {
+                var input, filter, ul, li, a, i;
+                input = document.getElementById("myInput");
+                filter = input.value.toUpperCase();
+                div = document.getElementById("myDropdown");
+                a = div.getElementsByTagName("button");
+                for (i = 0; i < a.length; i++) {
+                    txtValue = a[i].textContent || a[i].innerText;
+                    if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                        a[i].style.display = "";
+                    } else {
+                        a[i].style.display = "none";
+                    }
+                }
+            }
+        </script>
+
+
+        <!-- ======= Footer ======= -->
+        <footer id="footer">
+            <div class="footer-top">
+                <div class="container">
+                    <div class="row">
+
+                        <div class="col-lg-9 col-md-8">
+                            <div class="footer-info">
+                                <h3>BV-Unite</h3>
+                                <p>
+                                    Vanasthali Road, Vanasthali,<br>
+                                    Rajasthan 304022 <br><br>
+                                    <strong>Phone:</strong> 01438 228 456<br>
+                                    <strong>Email:</strong> BVUnite@gmail.com<br>
+                                </p>
+                            </div>
+                        </div>
+
+
+                        <div class="col-lg-3 col-md-4 footer-newsletter">
+                            <h4>Banasthali Vidyapith</h4>
+                            <p>University with a difference</p>
+
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="container">
+                <div class="copyright">
+                    &copy; Copyright <strong><span>Banasthali Vidyapith</span></strong>. All Rights Reserved
+                </div>
+                <div class="credits">
+                   
+                    Designed by <a href="">Divya Garg, Himanshi Kataria, Hityasha Singhal</a>
+                </div>
+            </div>
+        </footer><!-- End Footer -->
+
+        <a href="#" class="back-to-top"><i class="icofont-simple-up"></i></a>
+
+        <!-- Vendor JS Files -->
+        <script src="{% static '/vendor/jquery/jquery.min.js' %}"></script>
+        <script src="{% static '/vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+        <script src="{% static '/vendor/jquery.easing/jquery.easing.min.js' %}"></script>
+        <script src="{% static '/vendor/php-email-form/validate.js' %}"></script>
+        <script src="{% static '/vendor/waypoints/jquery.waypoints.min.js' %}"></script>
+        <script src="{% static '/vendor/counterup/counterup.min.js' %}"></script>
+        <script src="{% static '/vendor/isotope-layout/isotope.pkgd.min.js' %}"></script>
+        <script src="{% static '/vendor/venobox/venobox.min.js' %}"></script>
+        <script src="{% static '/vendor/owl.carousel/owl.carousel.min.js' %}"></script>
+
+        <!-- Template Main JS File -->
+        <script src="{% static '/js/main.js' %}"></script>
+        <script>
+            $(document).ready(function () {
+
+                //like ajax call
+                $('.like-form').submit(function (e) {
+                    e.preventDefault();
+                    const id = $(this).attr('id')
+                    const likeText = $(`.like-btn${id}`).text()
+                    const trim = $.trim(likeText)
+                    const url = $(this).attr('action')
+
+
+                    let res;
+                    const likes = $(`.like-count${id}`).text()
+                    const trimCount = parseInt(likes)
+                    console.log(trimCount + 1)
+
+                    $.ajax({
+                        type: "POST",
+                        url: url,
+                        data: {
+                            'csrfmiddlewaretoken': $('input[name=csrfmiddlewaretoken]').val(),
+                            'id': id
+                        },
+                        success: function (response) {
+                            if (trim === 'Unlike') {
+                                $(`.like-btn${id}`).text('Like')
+                                $(`.like-btn${id}`).removeClass("fa fa-thumbs-down")
+                                $(`.like-btn${id}`).addClass("fa fa-thumbs-up")
+                                res = trimCount - 1
+                            } else {
+                                $(`.like-btn${id}`).text('Unlike')
+                                $(`.like-btn${id}`).removeClass("fa fa-thumbs-up")
+                                $(`.like-btn${id}`).addClass("fa fa-thumbs-down")
+                                res = trimCount + 1
+                            }
+
+                            $(`.like-count${id}`).text(res)
+                        },
+                        error: function (response) {
+                            console.log('error', response)
+                        }
+                    })
+                })
+            });
+        </script>
+</body>
+</html>

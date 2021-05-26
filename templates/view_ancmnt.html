@@ -1,0 +1,98 @@
+{% load myfilters %}
+{% load static %}
+<html>
+<head>
+    <title>Announcements</title>
+
+    <style>
+        .bcontent {
+            margin-top: 10px;
+        }
+
+        img {
+            height: auto;
+        }
+    </style>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <!-- Popper JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body style="background-color: #7fcec5; background-image: linear-gradient(315deg, #7fcec5 0%, #14557b 74%); ">
+    <div class="bg">
+        <center><img src="{% static '/images/announcement4.jpg' %}" alt=""></center>
+        <a href="{% url 'home' %}" class="btn btn-info" style="float:right; margin-right:10px;">Back to Home</a>
+        <br>
+        <br>
+    </div>
+    <center>
+
+        <table class="table">
+            <tbody>
+                {% for i in msg %}
+                {% with True as flag %}
+                {% for j in msg2%}
+                    {% if i.anc_uid == j.uid %}
+                <tr class="table-info">
+                    <div class="container bcontent">
+                        <div class="card" style="width: 700px;">
+                            <div class="row no-gutters">
+                                <div class="col-sm-5">
+                                    <img class="rounded-circle" src="{{i.anc_img }}" alt="Announce By {{j.uname}}" style="height:10rem">
+                                </div>
+                                <div class="col-sm-7">
+                                    <div class="card-body">
+                                        <h5 class="card-title">{{j.uname}}({{j.urole}})</h5>
+                                        <p class="card-text">{{i.anc_dsc}}</p>
+                                        <form method="POST" action="profile_view">
+                                            {% csrf_token %}
+                                            <button type="submit" name="submit" value="{{i.anc_uid}}" class="btn btn-primary">View Profile</button>
+                                        </form>
+
+                                        <p class="card-text">Date-{{i.anc_time}}</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </tr>
+                {% elif i.anc_uid == "ADMIN" and flag == True %}
+                <tr class="table-info">
+                    <div class="container bcontent">
+                        <div class="card" style="width: 700px;">
+                            <div class="row no-gutters">
+                                <div class="col-sm-5">
+                                    <img class="rounded-circle" src="{{i.anc_img }}" alt="Announce By Admin" style="height:10rem">
+                                </div>
+                                <div class="col-sm-7">
+                                    <div class="card-body">
+                                        <h5 class="card-title">Announce By:Admin</h5>
+                                        <p class="card-text">{{i.anc_dsc}}</p>
+                                        <p class="card-text">Date-{{i.anc_time}}</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </tr>
+                {% update_variable False as flag %}
+                {%endif%}
+               {% endfor %}
+               {% endwith %}
+             {% endfor %}
+
+            </tbody>
+        </table>
+    </center>
+
+</body>
+<html>
