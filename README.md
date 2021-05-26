@@ -9,7 +9,6 @@ The Project has been built by using python web framework Django. It provides bui
 
 # How it works?
 1) First we will run the server using command: python manage.py runserver and then open the local url on browser. The first page appears as follows:
-
 ![](/Images/first.png)
 
 2) Login/ Signup as per requirement:
@@ -30,29 +29,23 @@ The Project has been built by using python web framework Django. It provides bui
 ![](/Images/contacts.png)
 
 6) Then we can move on to view and edit our profile in the 'Me' section of the nav bar.
-
 ![](/Images/my profile.png)
 
 7) Next we move on to the 'Messages' section. Here we can start a new chat or continue a recent chat with any member of the website.
-
 ![](/Images/new chat.png)
 ![](/Images/recent chat.png)
 
 8) Next on the nav bar we have 'Announcements' section. This section depends on what type of user you are. If you are a Teacher/Alumni then you can view and make announcements but if you are a student then you can only view announcements.
-
 ![](/Images/view annc.png)
 ![](/Images/make annc.jpeg)
 
 9) You can also view someone else's profile by clicking 'View Profile'.
-
 ![](/Images/view profile.png)
 
 10) Now we have a 'Contact Us' page from where anyone can contact us regarding any issues or feedbacks.
-
 ![](/Images/contact us.png)
 
 11) If a user wants to change password, it can be done through the 'Change Password' option in the nav bar drop down.
-
 ![](/Images/change pass.png)
 
 12) Finally, the user can logout from the website after exploring it and will again be redirected to the first page of website.
