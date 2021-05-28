@@ -29,7 +29,7 @@ The Project has been built by using python web framework Django. It provides bui
 ![](/Images/contacts.png)
 
 6) Then we can move on to view and edit our profile in the 'Me' section of the nav bar.
-![](/Images/my profile.png)
+![](/Images/my_profile.png)
 
 7) Next we move on to the 'Messages' section. Here we can start a new chat or continue a recent chat with any member of the website.
 ![](/Images/new chat.png)
